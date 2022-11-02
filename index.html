@@ -53,25 +53,115 @@
       <div class="row gap-5">
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
           <h3 class="fw-bold fs-5">stuff about me</h3>
-          <p>hello</p>
+          <p>i am very cool</p>
         </div>
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
           <h3 class="fw-bold fs-5">you can find me at:</h3>
-          <p>hello</p>
+          <p>ligma</p>
         </div>
       </div>
       <div class="row gap-5">
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
           <h3 class="fw-bold fs-5 text-center">interesting things</h3>
-          <p>hello</p>
+          <p>lorem</p>
         </div>
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
           <h3 class="fw-bold fs-5 text-center">stats</h3>
-          <p>hello</p>
+            <p>connection speed: <span class="ct">1.58 mb/s</span></p>
+          <script>
+            var imageAddr = "https://thescrllkkey.github.io/assets/img/testpattern.png";
+            var downloadSize = 2131758; //bytes
+
+            function ShowProgressMessage(msg) {
+                elm = document.querySelector('.ct')
+                if (console) {
+                    if (typeof msg == "string") {
+
+
+                        elm.innerHTML = "..."
+                    } else {
+                        for (var i = 0; i < msg.length; i++) {
+
+                            speed = msg[i]
+                            color = ""
+                            if (speed <= 1) {
+                                color = "color: rgb(238, 108, 108);"
+                            } else if (speed <= 2) {
+                                color = "color: rgb(238, 164, 108);"
+                            } else if (speed <= 3) {
+                                color = "color: rgb(238, 236, 108);"
+                            } else if (speed <= 4) {
+                                color = "color: rgb(173, 238, 108);"
+                            } else if (speed <= 5) {
+                                color = "color: rgb(119, 238, 108);"
+                            } else if (speed <= 6) {
+                                color = "color: rgb(108, 238, 231);"
+                            } else if (speed <= 7) {
+                                color = "color: rgb(108, 149, 238);"
+                            } else if (speed <= 8) {
+                                color = "color: rgb(151, 108, 238);"
+                            } else if (speed <= 9) {
+                                color = "color: rgb(214, 108, 238);"
+                            } else {
+                                color = "color: rgb(238, 108, 205);"
+                            }
+
+                            elm.innerHTML = "<span style='" + color + "'>" + speed + " mb/s</span>"
+                        }
+                    }
+                }
+
+                var oProgress = document.getElementById("progress");
+                if (oProgress) {
+                    var actualHTML = (typeof msg == "string") ? msg : msg.join("<br />");
+                    oProgress.innerHTML = actualHTML;
+                }
+            }
+
+            function InitiateSpeedDetection() {
+                ShowProgressMessage("Loading the image, please wait...");
+                window.setTimeout(MeasureConnectionSpeed, 1);
+            };
+
+            if (window.addEventListener) {
+                window.addEventListener('load', InitiateSpeedDetection, false);
+            } else if (window.attachEvent) {
+                window.attachEvent('onload', InitiateSpeedDetection);
+            }
+
+            function MeasureConnectionSpeed() {
+                var startTime, endTime;
+                var download = new Image();
+                download.onload = function () {
+                    endTime = (new Date()).getTime();
+                    showResults();
+                }
+
+                download.onerror = function (err, msg) {
+                    ShowProgressMessage("Invalid image, or error downloading");
+                }
+
+                startTime = (new Date()).getTime();
+                var cacheBuster = "?nnn=" + startTime;
+                download.src = imageAddr + cacheBuster;
+
+                function showResults() {
+                    var duration = (endTime - startTime) / 1000;
+                    var bitsLoaded = downloadSize * 8;
+                    var speedBps = (bitsLoaded / duration).toFixed(2);
+                    var speedKbps = (speedBps / 1024).toFixed(2);
+                    var speedMbps = (speedKbps / 1024).toFixed(2);
+                    ShowProgressMessage([
+                        speedMbps
+                    ]);
+                }
+            }
+
+          </script>
         </div>
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
           <h3 class="fw-bold fs-5 text-center">something</h3>
-          <p>hello</p>
+          <p>ipsum</p>
         </div>
       </div>
 
@@ -80,7 +170,21 @@
   </div>
 
 <footer class="pt-3 mt-4 text-muted" style="border-top: 2px solid #1e143d">
-  <p class="ms-3 me-md-auto">DeckyE - updated 2022 - using Google Fonts, and Bootstrap 5.2</p>
+  <p class="ms-3 me-md-auto">DeckyE - updated 2022 - using Google Fonts, and Bootstrap 5.2 - toggle colors > <a id="c_toggle">█</a></p>
+<!-- invert -->
+  <script>
+      const c_toggle = document.querySelector('#c_toggle');
+      c_toggle.onclick = () => {
+          if (c_toggle.innerHTML == "█") {
+              c_toggle.innerHTML = "▮";
+              document.querySelector('html').style.filter = 'invert(100%)';
+          } else {
+              c_toggle.innerHTML = "█";
+              document.querySelector('html').style.filter = 'invert(0%)';
+          }
+      }
+  </script>
+
 </footer>
 </main>
 
