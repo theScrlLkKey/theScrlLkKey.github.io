@@ -158,7 +158,7 @@
                 }
             }
           </script>
-          <p>your ip: <span id="ip"></span></p>
+          <p class="text-wrap">your ip: <span id="ip"></span></p>
           <!-- ip -->
           <script>
             const ip_elm = document.querySelector('#ip');
@@ -191,10 +191,10 @@
       c_toggle.onclick = () => {
           if (c_toggle.innerHTML == "█") {
               c_toggle.innerHTML = "▮";
-              document.querySelector(!'nav').style.filter = 'invert(100%)';
+              document.querySelector('html').style.filter = 'invert(100%)';
           } else {
               c_toggle.innerHTML = "█";
-              document.querySelector(!'nav').style.filter = 'invert(0%)';
+              document.querySelector('html').style.filter = 'invert(0%)';
           }
       }
   </script>
