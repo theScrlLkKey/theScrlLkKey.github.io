@@ -158,12 +158,12 @@
                 }
             }
           </script>
-          <p class="text-wrap">your ip: <span id="ip"></span></p>
+          <p>your ip: <span id="ip"></span></p>
           <!-- ip -->
           <script>
             const ip_elm = document.querySelector('#ip');
             // Make the request
-            fetch('https://api.ipgeolocation.io/getip')
+            fetch('https://api.ipify.org?format=json')
               // Extract JSON body content from HTTP response
               .then(response => response.json())
               // Do something with the JSON data
