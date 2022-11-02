@@ -17,7 +17,7 @@
   </style>
 
 </head>
-<!-- todo: utc offset, random stuff, me in other places, other SMs, website stats: speed, ur ip, total visitors - plain html version, maybe web1.0, go back on 404, make responsive on mobile, add usernames, add favicons-->
+<!-- todo: utc offset, random stuff, me in other places, other SMs, website stats: uptime, total visitors - plain html version, maybe web1.0, go back on 404, make responsive on mobile, add usernames, add favicons-->
 <!--        <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">-->
 <!--          3 of 3-->
 <!--        </div>-->
@@ -67,7 +67,8 @@
         </div>
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
           <h3 class="fw-bold fs-5 text-center">stats</h3>
-            <p>connection speed: <span class="ct">1.58 mb/s</span></p>
+          <p>connection speed: <span class="ct"></span></p>
+          <!-- download speed -->
           <script>
             var imageAddr = "https://thescrllkkey.github.io/assets/img/testpattern.png";
             var downloadSize = 2131758; //bytes
@@ -156,7 +157,20 @@
                     ]);
                 }
             }
-
+          </script>
+          <p>your ip: <span id="ip"></span></p>
+          <!-- ip -->
+          <script>
+            const ip_elm = document.querySelector('#ip');
+            // Make the request
+            fetch('https://api.ipgeolocation.io/getip')
+              // Extract JSON body content from HTTP response
+              .then(response => response.json())
+              // Do something with the JSON data
+              .then(data => {
+                const ip_ret = JSON.parse(JSON.stringify(data, null, 2))
+                ip_elm.innerHTML = ip_ret.ip
+              });
           </script>
         </div>
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
