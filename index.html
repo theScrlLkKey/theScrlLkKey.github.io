@@ -191,10 +191,10 @@
       c_toggle.onclick = () => {
           if (c_toggle.innerHTML == "█") {
               c_toggle.innerHTML = "▮";
-              document.querySelector('main').style.filter = 'invert(100%)';
+              document.querySelector(!'nav').style.filter = 'invert(100%)';
           } else {
               c_toggle.innerHTML = "█";
-              document.querySelector('main').style.filter = 'invert(0%)';
+              document.querySelector(!'nav').style.filter = 'invert(0%)';
           }
       }
   </script>
