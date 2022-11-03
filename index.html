@@ -27,7 +27,7 @@
   </style>
 
 </head>
-<!-- todo: utc offset, random stuff, me in other places, other SMs, website stats: uptime, total visitors - plain html version, maybe web1.0, go back on 404, make responsive on mobile, add usernames, add favicons-->
+<!-- todo: utc offset, random stuff, me in other places, other SMs, website stats: uptime, total visitors - plain html version, maybe web1.0, make responsive on mobile-->
 <!--        <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">-->
 <!--          3 of 3-->
 <!--        </div>-->
@@ -64,6 +64,8 @@
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
           <h3 class="fw-bold fs-5">stuff about me</h3>
           <p>i am very cool</p>
+          <br>
+          <p>i am in utc-08 (utc-07 during dst)</p>
         </div>
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
           <h3 class="fw-bold fs-5">you can find me at:</h3>
@@ -74,6 +76,7 @@
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
           <h3 class="fw-bold fs-5 text-center">interesting things</h3>
           <p>lorem</p>
+          <p>this is a normal bit of text to test wrapping</p>
         </div>
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
           <h3 class="fw-bold fs-5 text-center">stats</h3>
@@ -187,6 +190,12 @@
         <div class="col text-bg-dark rounded-1" style="border: 2px solid #4324ad">
           <h3 class="fw-bold fs-5 text-center">something</h3>
           <p>ipsum</p>
+          <br>
+          <p>your utc offset is: utc<span id="tz"></span></p>
+          <script>
+            const tz = document.querySelector('#tz');
+            tz.innerHTML = Date().toString().match(/([-\+][0-9]+)\s/)[1];
+          </script>
         </div>
       </div>
 
